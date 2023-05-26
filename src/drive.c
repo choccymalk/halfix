@@ -574,12 +574,15 @@ static void drive_internal_state(void* this_ptr, char* pn)
         for (int i = 0; i < old_path_counts; i++)
             free(this->paths[i]);
         this->paths = realloc(this->paths, this->path_count * sizeof(char*));
-        int paths0 = 0;
-        for (unsigned int i = 0; i < this->path_count; i++) {
+	
+//	int paths0 = 0;
+        
+	for (unsigned int i = 0; i < this->path_count; i++) {
             sprintf(temp, "path%d", i);
             state_string(obj, temp, &this->paths[i]);
             printf("%s\n", this->paths[i]);
-            paths0++;
+           // paths0++;
+	    
         }
 
         // Destroy all blocks

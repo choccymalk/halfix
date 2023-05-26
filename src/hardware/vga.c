@@ -972,13 +972,15 @@ void vga_update(void)
 #ifdef ALLEGRO_BUILD
     vga.framebuffer = display_get_pixels();
 #endif
-
     uint32_t
         //current = vga.current_scanline,
         total_scanlines_drawn
         = 0;
     while (scanlines_to_update--) {
         total_scanlines_drawn++;
+	if(total_scanlines_drawn == 0){
+	printf("its 0");
+	}
         // Things to account for here
         //  - Doubling Scanlines
         //  - Character Scanlines
